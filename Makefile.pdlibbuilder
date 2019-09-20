@@ -651,8 +651,8 @@ pdincludepathwithspaces := $(if $(word 2, $(PDINCLUDEDIR)), $(PDINCLUDEDIR))
 # warnings. CFLAGS can be safely overriden using a make command argument.
 # Variables cflags, ldflags and ldlibs may be defined in including makefile.
 
-optimization.flags = -O3 -ffast-math -funroll-loops -fomit-frame-pointer
-warn.flags = -Wall -Wextra -Wshadow -Winline -Wstrict-aliasing
+optimization.flags ?= -O3 -ffast-math -funroll-loops -fomit-frame-pointer
+warn.flags ?= -Wall -Wextra -Wshadow -Winline -Wstrict-aliasing
 
 # suppress -Wunused-variable & Co if you don't want to clutter a build log
 ifdef suppress-wunused
