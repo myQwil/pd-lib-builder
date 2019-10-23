@@ -604,7 +604,11 @@ ifeq ($(system), Windows)
   else
     arch.c.flags =
   endif
-  extension = dll
+  ifeq ($(target.arch), x86_64)
+    extension = m_amd64
+  else
+    extension = m_i386
+  endif
   c.flags :=
   c.ldflags := -static-libgcc -shared \
     -Wl,--enable-auto-import "$(PDBINDIR)/pd$(filter-out 32,$(floatsize)).dll"
