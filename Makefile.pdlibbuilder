@@ -422,7 +422,7 @@ target.triplet := $(subst -, ,$(shell $(CC) -dumpmachine))
 # The following systems are defined: Linux, Darwin, Windows. GNU and
 # GNU/kFreeBSD are treated as Linux to get the same options.
 
-ifneq ($(filter linux gnu% kfreebsd, $(target.triplet)),)
+ifneq ($(filter linux kfreebsd, $(target.triplet)),)
   system = Linux
 endif
 
@@ -430,7 +430,7 @@ ifneq ($(filter darwin%, $(target.triplet)),)
   system = Darwin
 endif
 
-ifneq ($(filter mingw% cygwin%, $(target.triplet)),)
+ifneq ($(filter windows mingw% cygwin%, $(target.triplet)),)
   system = Windows
 endif
 
